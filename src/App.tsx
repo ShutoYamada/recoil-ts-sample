@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useCallback } from "react";
+import { useRecoilValue, useSetRecoilState, atom, selector } from "recoil";
+import "./App.css";
+import { todoListState } from "./atoms/TodoListAtom";
+import TitleForm from "./component/TitleForm";
+import AddButton from "./component/AddButton";
+import TodoList from "./component/TodoList";
+import SearchForm from "./component/SearchForm";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ margin: 12 }}>
+      <div>
+        <TitleForm />
+        <AddButton />
+      </div>
+      <SearchForm />
+      <TodoList />
     </div>
   );
-}
+};
 
 export default App;
